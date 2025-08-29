@@ -1,0 +1,297 @@
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #c6ccd6;
+  --text: #333;
+  --card: #fff;
+  --muted: #777;
+  --accent: #ff4f81;
+  --accent-2: #ff9f43;
+  --border: #ddd;
+  --control-bg: #2a2a2a;
+  --control-text: #f5f5f5;
+  --control-border: #444;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+body.dark {
+  background: #1c1c1e;
+  color: #f1f1f1;
+}
+
+/* Helpers */
+.hidden {
+  display: none !important;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.65rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #a86565;
+  color: inherit;
+}
+.btn.danger {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+/* INTRO (Splash + Auth together) */
+.intro {
+  position: relative;
+  min-height: 100vh;
+  background: url('anime.jpg') no-repeat center center;
+  background-size: cover;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  justify-items: center;
+  padding: 60px 16px 32px;
+  gap: 24px;
+}
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* Optional overlay */
+  z-index: 0;
+}
+.intro > * {
+  position: relative;
+  z-index: 1;
+}
+.intro-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.35);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+  animation: fadeInUp 1.2s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Auth box */
+.auth-box {
+  width: 360px;
+  max-width: 92vw;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  text-align: center;
+  animation: fadeInUp 0.9s 0.2s ease both;
+}
+.auth-box h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.75rem;
+}
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.auth-box input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,79,129,0.15);
+}
+.auth-box .btn.primary {
+  width: 100%;
+  margin-top: 10px;
+}
+.auth-switch {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+.auth-switch a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* WELCOME overlay (after login) */
+.welcome {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: url('your-anime-image.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  z-index: 1000;
+}
+.welcome-inner {
+  text-align: center;
+}
+.welcome-title {
+  font-size: 2.6rem;
+  margin-bottom: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+.welcome-sub {
+  font-size: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+.accent {
+  font-weight: 700;
+}
+
+/* HEADER */
+.app-header {
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+body.dark .app-header {
+  background: #2c2c2e;
+  border-bottom-color: #3b3b3f;
+}
+.brand h1 {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+.tagline {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-wrap input,
+.filters select {
+  background-color: var(--control-bg);
+  color: var(--control-text);
+  border: 1px solid var(--control-border);
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 0.95rem;
+  min-width: 210px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.search-wrap input::placeholder {
+  color: #cfcfcf;
+}
+.search-wrap input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,79,129,0.2);
+}
+.filters .btn.hidden {
+  display: none;
+}
+
+/* GRID + CARDS */
+.content {
+  padding: 1rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+}
+body.dark .card {
+  background: #2c2c2e;
+}
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.card-body h3 {
+  font-size: 1.05rem;
+  font-family: 'Poppins', sans-serif;
+}
+.card-body p {
+  font-size: 0.92rem;
+  color: #555;
+}
+body.dark .card-body p {
+  color: #e7e7e7;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+.fav-btn {
+  cursor: pointer;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+}
+
+
+
+

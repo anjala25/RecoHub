@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RecoHub — Anime Recommender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- INTRO + AUTH (same screen) -->
+  <section id="intro" class="intro">
+    <h1 class="intro-title">Welcome weebers....</h1>
+
+    <div id="authScreen" class="auth-box">
+      <h2 id="authTitle">Login</h2>
+      <form id="authForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" class="btn primary">Login</button>
+      </form>
+      <p class="auth-switch" id="toggleAuth">
+        Don't have an account?
+        <a href="#" id="switchMode">Sign up</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- WELCOME OVERLAY (after login, before app) -->
+  <section id="welcome" class="welcome hidden">
+    <div class="welcome-inner">
+      <h1 class="welcome-title">Konichiwa Minasan 🙂</h1>
+      <p class="welcome-sub">Discover your next favorite <span class="accent">anime</span>.</p>
+      <button id="enterBtn" class="btn primary">Enter</button>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <header class="app-header hidden" id="appHeader">
+    <div class="brand">
+      <h1>RecoHub</h1>
+      <p class="tagline">Your personal anime recommender</p>
+    </div>
+
+    <div class="controls">
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search titles or genres…" />
+      </div>
+
+      <div class="filters">
+        <select id="sortSelect" title="Sort by">
+          <option value="rating_desc">Rating (High → Low)</option>
+          <option value="rating_asc">Rating (Low → High)</option>
+          <option value="title_asc">Title (A → Z)</option>
+        </select>
+
+        <button id="randomBtn" class="btn ghost">🎲 Random</button>
+        <button id="favoritesBtn" class="btn ghost">❤️ Favorites</button>
+        <button id="allBtn" class="btn ghost hidden">📚 All Anime</button>
+        <button id="darkToggle" class="btn ghost" title="Toggle theme">🌙</button>
+        <button id="logoutBtn" class="btn danger">🚪 Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content hidden" id="appContent">
+    <section id="results" class="grid"></section>
+    <div id="emptyState" class="empty hidden">
+      <h3>No results found</h3>
+      <p>Try a different search or sort option.</p>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
