@@ -107,6 +107,12 @@ body.dark {
   letter-spacing: 1px;
 
 }
+.hero-subtitle {
+  color: white;
+  font-size: 1.2rem;
+  margin-top: -10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
