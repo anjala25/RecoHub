@@ -62,7 +62,7 @@ body.dark {
 .intro {
   position: relative;
   min-height: 100vh;
-  background: url('anime.jpeg') no-repeat center center;
+  background: url('anime.jpg') no-repeat center center;
   background-size: cover;
   display: grid;
   grid-template-rows: auto auto 1fr;
