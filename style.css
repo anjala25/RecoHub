@@ -42,8 +42,22 @@ body.dark {
   letter-spacing: 0.2px;
 }
 .btn.primary {
-  background: var(--accent);
-  color: #fff;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #ff4f81,
+    #ff9f43
+  );
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition: 0.3s;
 }
 .btn.ghost {
   background: transparent;
@@ -84,15 +98,14 @@ body.dark {
 }
 .intro-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 800;
-  color: #fff;
+  color: white;
   text-align: center;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.35);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
-  border-radius: 12px;
-  animation: fadeInUp 1.2s ease both;
+  margin-top: 30px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  letter-spacing: 1px;
+
 }
 
 @keyframes fadeInUp {
@@ -102,46 +115,61 @@ body.dark {
 
 /* Auth box */
 .auth-box {
-  width: 360px;
+  width: 400px;
   max-width: 92vw;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 24px;
+
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+
   text-align: center;
-  animation: fadeInUp 0.9s 0.2s ease both;
+
+  animation: fadeInUp 0.8s ease;
 }
 .auth-box h2 {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 0.75rem;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .auth-box input {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 14px;
+  margin: 10px 0;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+
   font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-box input::placeholder {
+  color: rgba(255,255,255,0.7);
 }
 .auth-box input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(255,79,129,0.15);
+  outline: none;
+  border-color: #ff4f81;
+  box-shadow: 0 0 15px rgba(255,79,129,0.4);
 }
 .auth-box .btn.primary {
   width: 100%;
   margin-top: 10px;
 }
 .auth-switch {
-  margin-top: 10px;
-  font-size: 0.95rem;
+  margin-top: 15px;
+  color: white;
 }
+
 .auth-switch a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 700;
+  color: #ffd166;
 }
 
 /* WELCOME overlay (after login) */
